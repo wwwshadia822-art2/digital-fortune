@@ -1,0 +1,102 @@
+html = """<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔮 فالگیر دیجیتال</title>
+
+<style>
+body {
+    background: linear-gradient(135deg,#16002b,#65008f);
+    color: white;
+    font-family: Tahoma;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.box {
+    background: rgba(255,255,255,.15);
+    width: 330px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 25px;
+}
+
+input {
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 15px;
+    background: #ff4fd8;
+    color: white;
+    font-size: 16px;
+}
+
+#result {
+    margin-top: 25px;
+    font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>🔮 فالگیر دیجیتال 🔮</h1>
+
+<p>اسمت رو وارد کن:</p>
+
+<input id="name" placeholder="مثلاً شادی">
+
+<br>
+
+<button onclick="fortune()">فال منو بگو ✨</button>
+
+<div id="result"></div>
+</div>
+
+<script>
+function fortune() {
+
+let name = document.getElementById("name").value;
+
+if (name == "") {
+alert("اول اسمتو بنویس 😂");
+return;
+}
+
+let fortunes = [
+"✨ یه خبر خوب خیلی نزدیکته!",
+"❤️ یه اتفاق قشنگ عاطفی در راهته!",
+"💰 به زودی یه پولی به دستت میرسه!",
+"🍀 امروز شانس با توئه!",
+"🎓 توی درس یا دانشگاه یه موفقیت داری!",
+"🚀 یه تغییر بزرگ توی زندگیت اتفاق میفته!",
+"😂 یه اتفاق غیرمنتظره قراره غافلگیرت کنه!"
+];
+
+let random = Math.floor(Math.random() * fortunes.length);
+
+document.getElementById("result").innerHTML =
+"🔮 " + name + " جان...<br><br>" + fortunes[random];
+}
+</script>
+
+</body>
+</html>
+"""
+
+with open("fal.html", "w", encoding="utf-8") as file:
+    file.write(html)
+
+import webbrowser
+webbrowser.open("fal.html")
+
+print("سایتت ساخته شد! 🔮✨")
